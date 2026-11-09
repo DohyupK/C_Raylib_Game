@@ -36,7 +36,7 @@ int main(void) {
 
     AudioSfx_Init();
     Assets_Init();
-    Locale_Init(); /* UTF-8 Korean strings from file — before Ui_Init glyph scan */
+    Locale_Init();
     Ui_Init();
 
     GameState game;
@@ -114,3 +114,24 @@ int main(void) {
     CloseWindow();
     return 0;
 }
+
+/* main.c 하나로 나머지 소스 포함 */
+#include "util.c"
+#include "camera_ctrl.c"
+#include "world.c"
+#include "player.c"
+#include "weapons.c"
+#include "inventory.c"
+#include "monster_data.c"
+#include "monsters.c"
+#include "waves.c"
+#include "abilities.c"
+#include "score.c"
+#include "bosses.c"
+#include "meta.c"
+#include "hud.c"
+#include "assets.c"
+#include "audio_sfx.c"
+#include "ui_font.c"
+#include "menu.c"
+#include "locale_kr.c"

@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Arena Breach",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/ArenaBreach.exe",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build Arena Breach",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "console": "externalTerminal"
+    }
+  ]
+}

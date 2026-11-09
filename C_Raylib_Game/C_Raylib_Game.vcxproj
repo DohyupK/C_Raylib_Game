@@ -129,25 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
-    <ClCompile Include="util.c" />
-    <ClCompile Include="camera_ctrl.c" />
-    <ClCompile Include="world.c" />
-    <ClCompile Include="player.c" />
-    <ClCompile Include="weapons.c" />
-    <ClCompile Include="inventory.c" />
-    <ClCompile Include="monster_data.c" />
-    <ClCompile Include="monsters.c" />
-    <ClCompile Include="waves.c" />
-    <ClCompile Include="abilities.c" />
-    <ClCompile Include="score.c" />
-    <ClCompile Include="bosses.c" />
-    <ClCompile Include="meta.c" />
-    <ClCompile Include="hud.c" />
-    <ClCompile Include="assets.c" />
-    <ClCompile Include="audio_sfx.c" />
-    <ClCompile Include="ui_font.c" />
-    <ClCompile Include="menu.c" />
-    <ClCompile Include="locale_kr.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />

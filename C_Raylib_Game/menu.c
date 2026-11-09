@@ -1,7 +1,7 @@
 #include "game.h"
 #include <stdio.h>
 
-static const char *ACH_KEYS[ACHIEVE_COUNT] = {
+static const char *MENU_ACH_KEYS[ACHIEVE_COUNT] = {
     "ACH_FIRST", "ACH_COMBO", "ACH_BOSS", "ACH_COLLECT",
     "ACH_SURVIVE", "ACH_GRENADE", "ACH_FASHION", "ACH_SCORE"
 };
@@ -142,7 +142,7 @@ void Menu_Draw(GameState *g) {
             DrawRectangle((int)panelX + 40, (int)y, (int)panelW - 80, 36, Fade(ok ? DARKGREEN : DARKGRAY, 0.7f));
             DrawRectangleLines((int)panelX + 40, (int)y, (int)panelW - 80, 36, ok ? LIME : GRAY);
             Ui_Draw(ok ? L("ACH_CLEAR") : L("ACH_LOCKED"), panelX + 52, y + 8, 18, ok ? LIME : GRAY);
-            Ui_Draw(L(ACH_KEYS[i]), panelX + 160, y + 8, 20, ok ? WHITE : LIGHTGRAY);
+            Ui_Draw(L(MENU_ACH_KEYS[i]), panelX + 160, y + 8, 20, ok ? WHITE : LIGHTGRAY);
         }
         Ui_Draw(TextFormat(L("ACH_PROGRESS"), cleared, ACHIEVE_COUNT), panelX + 40, panelY + panelH - 40, 20, SKYBLUE);
     } else if (g->menuPage == MENU_PAGE_RANKING) {
