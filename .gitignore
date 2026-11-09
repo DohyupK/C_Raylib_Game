@@ -5,7 +5,7 @@ src/x64/
 *.o
 *.obj
 *.user
-ArenaBreach.exe
-raylib.dll
+/ArenaBreach.exe
+/raylib.dll
 third_party/*.zip
 save/
