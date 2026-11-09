@@ -37,7 +37,7 @@ Color Meta_CostumeColor(CostumeId id) {
 
 const char *Meta_CostumeName(CostumeId id) {
     (void)id;
-    return "기본";
+    return "Default";
 }
 
 void Meta_CycleCostume(GameState *g) {

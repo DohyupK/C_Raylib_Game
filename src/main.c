@@ -1,6 +1,7 @@
-/* Arena Breach — 현재 main (초록 네모 데모 아님) */
+/* Arena Breach entry — compile this file only (includes other .c below) */
 #include "game.h"
 #include <string.h>
+#include <stdlib.h>
 
 static void Game_Reset(GameState *g) {
     RankingBoard keepRank = g->ranking;
@@ -40,22 +41,27 @@ int main(void) {
     Locale_Init();
     Ui_Init();
 
-    GameState game;
-    memset(&game, 0, sizeof(game));
-    Ranking_Load(&game);
-    Game_Reset(&game);
-    if (Assets_Ready()) GameShowMessage(&game, L("MSG_ASSETS_OK"), 2.0f);
-    else GameShowMessage(&game, L("MSG_ASSETS_FAIL"), 4.0f);
+    /* Heap: GameState is too large for default stack (MSVC C6262) */
+    GameState *g = (GameState *)calloc(1, sizeof(GameState));
+    if (!g) {
+        CloseWindow();
+        return 1;
+    }
+
+    Ranking_Load(g);
+    Game_Reset(g);
+    if (Assets_Ready()) GameShowMessage(g, L("MSG_ASSETS_OK"), 2.0f);
+    else GameShowMessage(g, L("MSG_ASSETS_FAIL"), 4.0f);
 
     while (!WindowShouldClose()) {
         if (IsKeyPressed(KEY_F4)) break;
 
-        if (IsKeyPressed(KEY_ESCAPE) && !game.gameOver) {
-            game.paused = !game.paused;
-            if (game.paused) {
-                game.inventory.open = false;
-                game.inventory.dragging = false;
-                game.menuPage = MENU_PAGE_PAUSE;
+        if (IsKeyPressed(KEY_ESCAPE) && !g->gameOver) {
+            g->paused = !g->paused;
+            if (g->paused) {
+                g->inventory.open = false;
+                g->inventory.dragging = false;
+                g->menuPage = MENU_PAGE_PAUSE;
             }
             AudioSfx_Pause();
         }
@@ -63,52 +69,53 @@ int main(void) {
         float dt = GetFrameTime();
         if (dt > 0.05f) dt = 0.05f;
 
-        if (game.paused) {
-            Menu_Update(&game);
+        if (g->paused) {
+            Menu_Update(g);
         } else {
-            if (!game.tutorialDone && IsKeyPressed(KEY_ENTER)) {
-                game.tutorialStep++;
-                if (game.tutorialStep >= 6) game.tutorialDone = true;
+            if (!g->tutorialDone && IsKeyPressed(KEY_ENTER)) {
+                g->tutorialStep++;
+                if (g->tutorialStep >= 6) g->tutorialDone = true;
             }
 
-            if (game.gameOver && IsKeyPressed(KEY_ENTER)) {
-                Game_Reset(&game);
-                game.tutorialDone = true;
+            if (g->gameOver && IsKeyPressed(KEY_ENTER)) {
+                Game_Reset(g);
+                g->tutorialDone = true;
             }
 
-            if (!game.gameOver) {
-                game.gameTime += dt;
-                Game_UpdateBackground(&game);
-                Inventory_Update(&game);
-                Player_Update(&game, dt);
-                if (!game.inventory.open) {
-                    Weapons_Update(&game, dt);
-                    Monsters_Update(&game, dt);
-                    Waves_Update(&game, dt);
-                    Bosses_Update(&game, dt);
-                    Meta_Update(&game);
+            if (!g->gameOver) {
+                g->gameTime += dt;
+                Game_UpdateBackground(g);
+                Inventory_Update(g);
+                Player_Update(g, dt);
+                if (!g->inventory.open) {
+                    Weapons_Update(g, dt);
+                    Monsters_Update(g, dt);
+                    Waves_Update(g, dt);
+                    Bosses_Update(g, dt);
+                    Meta_Update(g);
                 }
-                Camera_Update(&game);
-                UtilUpdateEffects(&game, dt);
+                Camera_Update(g);
+                UtilUpdateEffects(g, dt);
             } else {
-                UtilUpdateEffects(&game, dt);
+                UtilUpdateEffects(g, dt);
             }
         }
 
         BeginDrawing();
-        ClearBackground(game.bgClear.a ? game.bgClear : (Color){20, 22, 28, 255});
-        BeginMode3D(game.camera);
-        World_Draw(&game);
-        Player_Draw(&game);
-        Weapons_Draw(&game);
-        Monsters_Draw(&game);
-        UtilDrawEffects(&game);
+        ClearBackground(g->bgClear.a ? g->bgClear : (Color){20, 22, 28, 255});
+        BeginMode3D(g->camera);
+        World_Draw(g);
+        Player_Draw(g);
+        Weapons_Draw(g);
+        Monsters_Draw(g);
+        UtilDrawEffects(g);
         EndMode3D();
-        Hud_Draw(&game);
+        Hud_Draw(g);
         DrawFPS(SCREEN_W - 90, SCREEN_H - 30);
         EndDrawing();
     }
 
+    free(g);
     Ui_Unload();
     Assets_Unload();
     AudioSfx_Unload();
@@ -116,7 +123,7 @@ int main(void) {
     return 0;
 }
 
-/* main.c 하나로 나머지 소스 포함 */
+/* Include other sources through main.c */
 #include "util.c"
 #include "camera_ctrl.c"
 #include "world.c"

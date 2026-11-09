@@ -24,9 +24,10 @@ void Ranking_Load(GameState *g) {
     while (*p && g->ranking.count < RANK_COUNT) {
         int score = 0, kills = 0;
         if (sscanf(p, "%d %d", &score, &kills) >= 1) {
-            g->ranking.scores[g->ranking.count] = score;
-            g->ranking.kills[g->ranking.count] = kills;
-            g->ranking.count++;
+            int idx = g->ranking.count;
+            g->ranking.scores[idx] = score;
+            g->ranking.kills[idx] = kills;
+            g->ranking.count = idx + 1;
         }
         while (*p && *p != '\n') p++;
         if (*p == '\n') p++;
@@ -39,8 +40,13 @@ void Ranking_Save(GameState *g) {
     if (!DirectoryExists("save")) MakeDirectory("save");
     char buf[512];
     int n = 0;
-    for (int i = 0; i < g->ranking.count; i++) {
-        n += sprintf(buf + n, "%d %d\n", g->ranking.scores[i], g->ranking.kills[i]);
+    int count = g->ranking.count;
+    if (count > RANK_COUNT) count = RANK_COUNT;
+    for (int i = 0; i < count; i++) {
+        int wrote = snprintf(buf + n, sizeof(buf) - (size_t)n, "%d %d\n",
+                             g->ranking.scores[i], g->ranking.kills[i]);
+        if (wrote < 0) break;
+        n += wrote;
         if (n >= (int)sizeof(buf) - 32) break;
     }
     SaveFileText(RANK_FILE, buf);
@@ -51,21 +57,38 @@ void Ranking_Submit(GameState *g) {
     int kills = g->score.kills;
     if (score <= 0) return;
 
-    /* insert sorted descending */
-    int insert = g->ranking.count;
-    for (int i = 0; i < g->ranking.count; i++) {
-        if (score > g->ranking.scores[i]) { insert = i; break; }
-    }
-    if (insert >= RANK_COUNT) return;
+    int oldCount = g->ranking.count;
+    if (oldCount < 0) oldCount = 0;
+    if (oldCount > RANK_COUNT) oldCount = RANK_COUNT;
 
-    int newCount = g->ranking.count < RANK_COUNT ? g->ranking.count + 1 : RANK_COUNT;
-    for (int i = newCount - 1; i > insert; i--) {
-        g->ranking.scores[i] = g->ranking.scores[i - 1];
-        g->ranking.kills[i] = g->ranking.kills[i - 1];
+    int newScores[RANK_COUNT];
+    int newKills[RANK_COUNT];
+    int n = 0;
+    int placed = 0;
+
+    for (int i = 0; i < oldCount && n < RANK_COUNT; i++) {
+        if (!placed && score > g->ranking.scores[i]) {
+            newScores[n] = score;
+            newKills[n] = kills;
+            n++;
+            placed = 1;
+            if (n >= RANK_COUNT) break;
+        }
+        newScores[n] = g->ranking.scores[i];
+        newKills[n] = g->ranking.kills[i];
+        n++;
     }
-    g->ranking.scores[insert] = score;
-    g->ranking.kills[insert] = kills;
-    g->ranking.count = newCount;
+    if (!placed && n < RANK_COUNT) {
+        newScores[n] = score;
+        newKills[n] = kills;
+        n++;
+    }
+
+    for (int i = 0; i < n; i++) {
+        g->ranking.scores[i] = newScores[i];
+        g->ranking.kills[i] = newKills[i];
+    }
+    g->ranking.count = n;
     if (g->ranking.scores[0] > g->score.highScore) g->score.highScore = g->ranking.scores[0];
     Ranking_Save(g);
 }
