@@ -51,7 +51,7 @@ gcc -std=c11 -O2 -Isrc -Ithird_party/raylib-6.2_win64_mingw-w64/include ^
   -Lthird_party/raylib-6.2_win64_mingw-w64/lib -lraylib -lopengl32 -lgdi32 -lwinmm
 ```
 
-VS 쓸 거면 `ArenaBreach.sln` 열고 Win32로 빌드 (역시 main.c만).
+VS 쓸 거면 `ArenaBreach.sln` 열고 **x86 또는 x64** 아무거나 빌드/실행 (둘 다 raylib 들어 있음).
 
 > 주의: `assets` 옆에 두고 루트에서 실행할 것. 안 그러면 모델/한글/소리 안 뜸.
 
