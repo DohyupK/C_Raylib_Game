@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\modules">
+      <UniqueIdentifier>{a1b2c3d4-e5f6-7890-abcd-ef1234567890}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="util.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="camera_ctrl.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="world.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="player.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="weapons.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="inventory.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="monster_data.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="monsters.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="waves.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="abilities.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="score.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="bosses.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="meta.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="hud.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="assets.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="audio_sfx.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="ui_font.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="menu.c"><Filter>소스 파일\modules</Filter></None>
+    <None Include="locale_kr.c"><Filter>소스 파일\modules</Filter></None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

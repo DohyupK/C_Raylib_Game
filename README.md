@@ -29,7 +29,7 @@ flowchart LR
 
 ## 슬라이드 2 · 어떻게 돌림?
 
-진입점: `C_Raylib_Game/main.c`  
+진입점: `src/main.c`  
 → 여기가 나머지 `.c`를 끌어와서, **main만 빌드하면 끝**
 
 ### 제일 쉬운 방법
@@ -46,12 +46,12 @@ ArenaBreach.exe
 ### 직접 gcc 칠 때
 
 ```bat
-gcc -std=c11 -O2 -IC_Raylib_Game -Ithird_party/raylib-6.2_win64_mingw-w64/include ^
-  C_Raylib_Game/main.c -o ArenaBreach.exe ^
+gcc -std=c11 -O2 -Isrc -Ithird_party/raylib-6.2_win64_mingw-w64/include ^
+  src/main.c -o ArenaBreach.exe ^
   -Lthird_party/raylib-6.2_win64_mingw-w64/lib -lraylib -lopengl32 -lgdi32 -lwinmm
 ```
 
-VS 쓸 거면 `C_Raylib_Game.slnx` 열고 Win32로 빌드 (역시 main.c만).
+VS 쓸 거면 `ArenaBreach.sln` 열고 Win32로 빌드 (역시 main.c만).
 
 > 주의: `assets` 옆에 두고 루트에서 실행할 것. 안 그러면 모델/한글/소리 안 뜸.
 
@@ -172,14 +172,15 @@ flowchart LR
 ## 슬라이드 8 · 폴더
 
 ```text
-C_Raylib_Game/   ← 소스 (main.c가 나머지 include)
-assets/
-  models/        ← 캐릭터·건물·아이템
-  sfx/           ← 효과음
-  fonts/         ← NanumGothic
-  locale/        ← 한국어 UI
-docs/            ← 가이드
-build.bat        ← 빌드
+(프로젝트 루트)
+  src/              ← C 소스 (main.c + 모듈들)
+  assets/           ← 모델·소리·폰트·한국어
+  docs/             ← 가이드
+  third_party/      ← raylib (MinGW)
+  packages/         ← raylib (Visual Studio)
+  build.bat         ← 빌드
+  ArenaBreach.sln   ← VS 솔루션
+  ArenaBreach.exe   ← 실행 파일
 ```
 
 ---

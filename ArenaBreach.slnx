@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="C_Raylib_Game/C_Raylib_Game.vcxproj" />
+  <Project Path="src/ArenaBreach.vcxproj" />
 </Solution>

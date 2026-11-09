@@ -27,7 +27,7 @@ mingw32-make
 
 ### Visual Studio
 
-`C_Raylib_Game.slnx` 를 열고 **Win32** 구성으로 빌드합니다.  
+`ArenaBreach.sln` 을 열고 **Win32** 구성으로 빌드합니다.  
 NuGet 패키지 `raylib 6.2.0` 이 `packages/` 에 있습니다. (현재 NuGet 바이너리는 win32)
 
 ---
@@ -125,25 +125,12 @@ NuGet 패키지 `raylib 6.2.0` 이 `packages/` 에 있습니다. (현재 NuGet �
 ## 5. 소스 구조
 
 ```
-C_Raylib_Game/
-  main.c           게임 루프
-  game.h           공통 타입/API
-  player.c         이동·입력 연결
-  camera_ctrl.c    탑다운 카메라
-  weapons.c        탄환·수류탄
-  inventory.c      가방·핫바
-  world.c          바닥·장애물
-  monster_data.c   30종 데이터
-  monsters.c       AI·전투·드롭
-  waves.c          Warning 웨이브
-  abilities.c      Q/E/R
-  score.c          점수·콤보
-  bosses.c         보스 스케줄·패턴
-  meta.c           업적·코스튬
-  hud.c            HUD·튜토리얼 문구
-  util.c           메시지·파티클
+src/               C 소스 (main.c가 나머지 include)
+assets/            모델·SFX·폰트·로케일
 docs/GAME_GUIDE.md 이 문서
 assets/LICENSE     라이선스
+ArenaBreach.sln    Visual Studio
+build.bat          MinGW 빌드
 ```
 
 ---

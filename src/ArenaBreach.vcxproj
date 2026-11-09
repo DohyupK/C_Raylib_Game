@@ -22,7 +22,7 @@
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{bc1653b5-4a01-42bb-a308-d1790cf72530}</ProjectGuid>
-    <RootNamespace>CRaylibGame</RootNamespace>
+    <RootNamespace>ArenaBreach</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -126,6 +126,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="util.c" />
+    <None Include="camera_ctrl.c" />
+    <None Include="world.c" />
+    <None Include="player.c" />
+    <None Include="weapons.c" />
+    <None Include="inventory.c" />
+    <None Include="monster_data.c" />
+    <None Include="monsters.c" />
+    <None Include="waves.c" />
+    <None Include="abilities.c" />
+    <None Include="score.c" />
+    <None Include="bosses.c" />
+    <None Include="meta.c" />
+    <None Include="hud.c" />
+    <None Include="assets.c" />
+    <None Include="audio_sfx.c" />
+    <None Include="ui_font.c" />
+    <None Include="menu.c" />
+    <None Include="locale_kr.c" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />

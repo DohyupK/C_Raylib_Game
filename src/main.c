@@ -1,3 +1,4 @@
+/* Arena Breach — 현재 main (초록 네모 데모 아님) */
 #include "game.h"
 #include <string.h>
 
