@@ -1,8 +1,4 @@
-<video
-  src="https://github.com/user-attachments/assets/7cf154ca-1a04-479f-9bdd-96bc94a1ae4a"
-  controls
-  width="100%">
-</video>
+https://github.com/user-attachments/assets/7cf154ca-1a04-479f-9bdd-96bc94a1ae4a
 
 # Arena Breach
 
