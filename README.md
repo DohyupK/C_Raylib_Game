@@ -1,6 +1,8 @@
+<video src="https://githubusercontent.com" controls width="100%"></video>
+
 # Arena Breach
 
-**과제 발표용 README** · C / raylib 6.2 · 3D 탑다운 슈터
+C / raylib 6.2 · 3D 탑다운 슈터
 
 > 초록 링 = 나 · 빨간 링 = 적
 
