@@ -1,4 +1,6 @@
-<video src="https://githubusercontent.com" controls width="100%"></video>
+<video controls>
+  <source src="https://raw.githubusercontent.com/DohyupK/C_Raylib_Game/main/Game.mp4" type="video/mp4">
+</video>
 
 # Arena Breach
 
