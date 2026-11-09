@@ -1,0 +1,16 @@
+SFX license notes
+=================
+
+Kenney Starter Kit sounds (CC0 1.0 — commercial use allowed, credit optional)
+---------------------------------------------------------------------------
+shoot.ogg  <- KenneyNL/Starter-Kit-FPS blaster.ogg
+hit.ogg    <- KenneyNL/Starter-Kit-FPS enemy_hurt.ogg
+item.ogg   <- KenneyNL/Starter-Kit-3D-Platformer coin.ogg
+
+Upstream: https://kenney.nl  /  https://github.com/KenneyNL
+
+Original generated WAV (public domain / no third-party rights)
+-------------------------------------------------------------
+grenade.wav  - explosion for grenades (tools/gen_sfx.py)
+boss.wav     - boss appearance sting (tools/gen_sfx.py)
+pause.wav    - pause UI blip (tools/gen_sfx.py)

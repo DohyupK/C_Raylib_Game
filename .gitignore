@@ -2,3 +2,10 @@
 Debug/
 Release/
 x64/
+*.o
+*.obj
+*.user
+ArenaBreach.exe
+raylib.dll
+third_party/*.zip
+save/

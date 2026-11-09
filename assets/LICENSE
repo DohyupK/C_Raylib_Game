@@ -1,0 +1,47 @@
+Arena Breach - Asset Licenses
+=============================
+
+Engine
+------
+raylib 6.2 — zlib/libpng license
+https://github.com/raysan5/raylib
+
+3D Models (assets/models/*.glb)
+-------------------------------
+Source: Quaternius free packs (via quaternius-showcase mirrors)
+License: CC0 1.0 — free for personal and commercial use, attribution not required
+Packs used:
+- Platformer Game Pack (player Character_Gun, Bee, Crab, Character)
+- Easy Enemies Pack (Frog, Rat, Snake, Spider, Wasp)
+- Animals Pack (Wolf, Fox, Husky, Bull, Deer, Stag)
+- Dinosaurs Pack (Velociraptor, T-Rex, Triceratops, Stegosaurus, Parasaurolophus)
+- Cyberpunk Pack (Enemy_* variants)
+- Mech Pack (George, Leela, Mike, Stan)
+
+Upstream: https://quaternius.com
+Showcase mirror: https://github.com/trebeljahr/quaternius-showcase
+
+Fonts (assets/fonts/)
+---------------------
+NanumGothic.ttf — SIL Open Font License (OFL), commercial use allowed
+https://github.com/google/fonts (ofl/nanumgothic)
+
+Buildings (assets/models/buildings/)
+------------------------------------
+Quaternius Buildings Pack 2 — CC0
+https://quaternius.com
+
+Sound effects (assets/sfx/)
+---------------------------
+See assets/sfx/LICENSE.txt
+- Kenney Starter Kit OGG files: CC0 1.0 (commercial OK)
+- grenade.wav / boss.wav / pause.wav: original generated WAV (no third-party IP)
+
+Item icons
+----------
+Generated at runtime in assets.c (original, no third-party IP)
+
+Game code / names
+-----------------
+Monster display names and special abilities are original to this project and
+are not affiliated with any film/game franchise IP.

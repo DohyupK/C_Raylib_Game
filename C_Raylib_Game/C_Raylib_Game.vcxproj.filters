@@ -18,8 +18,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    <ClCompile Include="main.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="util.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="camera_ctrl.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="world.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="player.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="weapons.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="inventory.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="monster_data.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="monsters.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="waves.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="abilities.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="score.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="bosses.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="meta.c"><Filter>소스 파일</Filter></ClCompile>
+    <ClCompile Include="hud.c"><Filter>소스 파일</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h"><Filter>헤더 파일</Filter></ClInclude>
   </ItemGroup>
 </Project>
