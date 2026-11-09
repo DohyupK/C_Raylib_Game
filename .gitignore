@@ -1,7 +1,7 @@
 .vs/
-Debug/
-Release/
-x64/
+**/Debug/
+**/Release/
+src/x64/
 *.o
 *.obj
 *.user
